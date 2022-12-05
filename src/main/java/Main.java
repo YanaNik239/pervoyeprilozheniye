@@ -1,10 +1,11 @@
+
 import app.Application;
 import io.github.humbleui.jwm.App;
 
 /**
  * Главный класс приложения
  */
-public class main {
+public class Main {
     /**
      * Главный метод приложения
      *
