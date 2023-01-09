@@ -40,7 +40,9 @@ public class Application  implements Consumer<Event> {
      */
     public Application() {
         window = App.makeWindow();
-        label = new Label(window, false, PANEL_BACKGROUND_COLOR, PANEL_PADDING, "Привет, мир!");
+        // создаём первый заголовок
+        label = new Label(window, true, PANEL_BACKGROUND_COLOR, PANEL_PADDING,
+                "Привет, мир!", true, true);
         window.setEventListener(this);
         window.setTitle("Java 2D");
         window.setWindowSize(900, 900);
