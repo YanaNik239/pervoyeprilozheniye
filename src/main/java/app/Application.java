@@ -177,6 +177,7 @@ public class Application implements Consumer<Event> {
                             return;
 
                         }
+                        case TAB -> InputFactory.nextTab();
                     }
             }
         }
