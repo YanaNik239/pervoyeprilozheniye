@@ -1,7 +1,6 @@
 package app;
 
 import controls.InputFactory;
-import controls.Label;
 import io.github.humbleui.jwm.*;
 import io.github.humbleui.jwm.skija.EventFrameSkija;
 import io.github.humbleui.skija.Canvas;
@@ -13,10 +12,11 @@ import panels.PanelLog;
 import panels.PanelRendering;
 
 import java.io.File;
+import java.util.Calendar;
+import java.util.Date;
 import java.util.function.Consumer;
 
 import static app.Colors.*;
-import static panels.PanelRendering.task;
 
 /**
  * Класс окна приложения
@@ -27,13 +27,18 @@ public class Application implements Consumer<Event> {
      */
     private final Window window;
     /**
-     * отступы панелей
+     * отступ приложения
      */
     public static final int PANEL_PADDING = 5;
     /**
      * радиус скругления элементов
      */
     public static final int C_RAD_IN_PX = 4;
+    /**
+     * кнопка изменений: у мака - это `Command`, у windows - `Ctrl`
+     */
+    public static final KeyModifier MODIFIER = Platform.CURRENT == Platform.MACOS ? KeyModifier.MAC_COMMAND : KeyModifier.CONTROL;
+
     /**
      * панель легенды
      */
@@ -51,9 +56,9 @@ public class Application implements Consumer<Event> {
      */
     private final PanelLog panelLog;
     /**
-     * кнопка изменений: у мака - это `Command`, у windows - `Ctrl`
+     * время последнего нажатия клавиши мыши
      */
-    public static final KeyModifier MODIFIER = Platform.CURRENT == Platform.MACOS ? KeyModifier.MAC_COMMAND : KeyModifier.CONTROL;
+    Date prevEventMouseButtonTime;
     /**
      * флаг того, что окно развёрнуто на весь экран
      */
@@ -65,6 +70,7 @@ public class Application implements Consumer<Event> {
     public Application() {
         // создаём окно
         window = App.makeWindow();
+
         // создаём панель рисования
         panelRendering = new PanelRendering(
                 window, true, PANEL_BACKGROUND_COLOR, PANEL_PADDING, 5, 3, 0, 0,
@@ -94,8 +100,8 @@ public class Application implements Consumer<Event> {
         window.setWindowSize(900, 900);
         // задаём его положение
         window.setWindowPosition(100, 100);
-        // задаём иконку
 
+        // задаём иконку
         switch (Platform.CURRENT) {
             case WINDOWS -> window.setIcon(new File("src/main/resources/windows.ico"));
             case MACOS -> window.setIcon(new File("src/main/resources/macos.icns"));
@@ -124,7 +130,6 @@ public class Application implements Consumer<Event> {
 
         // делаем окно видимым
         window.setVisible(true);
-
     }
 
     /**
@@ -134,21 +139,21 @@ public class Application implements Consumer<Event> {
      */
     @Override
     public void accept(Event e) {
-        // если событие - это закрытие окна
-        if (e instanceof EventWindowClose) {
-            // завершаем работу приложения
-            App.terminate();
-        } else if (e instanceof EventWindowCloseRequest) {
-            window.close();
-        } else if (e instanceof EventFrame) {
-            // запускаем рисование кадра
-            window.requestFrame();
-        } else if (e instanceof EventFrameSkija ee) {
-            // получаем поверхность рисования
-            Surface s = ee.getSurface();
-            // очищаем её канвас заданным цветом
-            paint(s.getCanvas(), new CoordinateSystem2i(s.getWidth(), s.getHeight()));
-        }// кнопки клавиатуры
+        // если событие кнопка мыши
+        if (e instanceof EventMouseButton) {
+            // получаем текущие дату и время
+            Date now = Calendar.getInstance().getTime();
+            // если уже было нажатие
+            if (prevEventMouseButtonTime != null) {
+                // если между ними прошло больше 200 мс
+                long delta = now.getTime() - prevEventMouseButtonTime.getTime();
+                if (delta < 200)
+                    return;
+            }
+            // сохраняем время последнего события
+            prevEventMouseButtonTime = now;
+        }
+        // кнопки клавиатуры
         else if (e instanceof EventKey eventKey) {
             // кнопка нажата с Ctrl
             if (eventKey.isPressed()) {
@@ -181,6 +186,23 @@ public class Application implements Consumer<Event> {
                     }
             }
         }
+        // если событие - это закрытие окна
+        else if (e instanceof EventWindowClose) {
+            // завершаем работу приложения
+            App.terminate();
+            // закрытие окна
+        } else if (e instanceof EventWindowCloseRequest) {
+            window.close();
+        } else if (e instanceof EventFrameSkija ee) {
+            Surface s = ee.getSurface();
+            paint(s.getCanvas(), new CoordinateSystem2i(0, 0, s.getWidth(), s.getHeight())
+            );
+        } else if (e instanceof EventFrame) {
+            // запускаем рисование кадра
+            window.requestFrame();
+        }
+
+        // передаём события на обработку панелям
         panelControl.accept(e);
         panelRendering.accept(e);
         panelLog.accept(e);

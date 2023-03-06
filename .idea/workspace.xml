@@ -4,11 +4,12 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="246291d9-912e-4b24-ab53-cdfa7953cc2d" name="Changes" comment="input tab works">
-      <change afterPath="$PROJECT_DIR$/src/main/java/controls/Button.java" afterDir="false" />
+    <list default="true" id="246291d9-912e-4b24-ab53-cdfa7953cc2d" name="Changes" comment="buttons work">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/app/Colors.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/app/Colors.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/app/Application.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/app/Application.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/app/Task.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/app/Task.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/panels/PanelControl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/panels/PanelControl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/panels/PanelRendering.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/panels/PanelRendering.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -89,7 +90,8 @@
       <workItem from="1671088355920" duration="3013000" />
       <workItem from="1673259342714" duration="3748000" />
       <workItem from="1673865234510" duration="5157000" />
-      <workItem from="1676889513097" duration="4029000" />
+      <workItem from="1676889513097" duration="5095000" />
+      <workItem from="1678096945730" duration="653000" />
     </task>
     <task id="LOCAL-00001" summary="skija connected">
       <created>1670235748752</created>
@@ -252,7 +254,14 @@
       <option name="project" value="LOCAL" />
       <updated>1676893054433</updated>
     </task>
-    <option name="localTasksCounter" value="24" />
+    <task id="LOCAL-00024" summary="buttons work">
+      <created>1676893699060</created>
+      <option name="number" value="00024" />
+      <option name="presentableId" value="LOCAL-00024" />
+      <option name="project" value="LOCAL" />
+      <updated>1676893699060</updated>
+    </task>
+    <option name="localTasksCounter" value="25" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -293,6 +302,7 @@
     <MESSAGE value="inputs work" />
     <MESSAGE value="input select works" />
     <MESSAGE value="input tab works" />
-    <option name="LAST_COMMIT_MESSAGE" value="input tab works" />
+    <MESSAGE value="buttons work" />
+    <option name="LAST_COMMIT_MESSAGE" value="buttons work" />
   </component>
 </project>
