@@ -4,12 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="246291d9-912e-4b24-ab53-cdfa7953cc2d" name="Changes" comment="unit tests">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/app/Colors.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/app/Colors.java" afterDir="false" />
+    <list default="true" id="246291d9-912e-4b24-ab53-cdfa7953cc2d" name="Changes" comment="cs rendering">
       <change beforePath="$PROJECT_DIR$/src/main/java/app/Task.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/app/Task.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/misc/CoordinateSystem2d.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/misc/CoordinateSystem2d.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/misc/CoordinateSystem2i.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/misc/CoordinateSystem2i.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/panels/PanelRendering.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/panels/PanelRendering.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -113,7 +111,7 @@
       <workItem from="1673865234510" duration="5157000" />
       <workItem from="1676889513097" duration="5095000" />
       <workItem from="1678096945730" duration="6187000" />
-      <workItem from="1680517047050" duration="1078000" />
+      <workItem from="1680517047050" duration="1435000" />
     </task>
     <task id="LOCAL-00001" summary="skija connected">
       <created>1670235748752</created>
@@ -318,7 +316,14 @@
       <option name="project" value="LOCAL" />
       <updated>1680517589862</updated>
     </task>
-    <option name="localTasksCounter" value="30" />
+    <task id="LOCAL-00030" summary="cs rendering">
+      <created>1680518181297</created>
+      <option name="number" value="00030" />
+      <option name="presentableId" value="LOCAL-00030" />
+      <option name="project" value="LOCAL" />
+      <updated>1680518181297</updated>
+    </task>
+    <option name="localTasksCounter" value="31" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -336,7 +341,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="window title ready" />
     <MESSAGE value="window icon ready" />
     <MESSAGE value="canvas works" />
     <MESSAGE value="add setColor()" />
@@ -361,6 +365,7 @@
     <MESSAGE value="json works" />
     <MESSAGE value="solve button" />
     <MESSAGE value="unit tests" />
-    <option name="LAST_COMMIT_MESSAGE" value="unit tests" />
+    <MESSAGE value="cs rendering" />
+    <option name="LAST_COMMIT_MESSAGE" value="cs rendering" />
   </component>
 </project>
