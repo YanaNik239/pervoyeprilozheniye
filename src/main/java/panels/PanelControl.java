@@ -3,6 +3,7 @@ package panels;
 import app.Point;
 import app.Task;
 import controls.*;
+import dialogs.PanelInfo;
 import io.github.humbleui.jwm.*;
 import io.github.humbleui.skija.Canvas;
 import misc.CoordinateSystem2i;
@@ -177,6 +178,7 @@ public class PanelControl extends GridPanel {
                 String s = "Задача решена\n" +
                         "Пересечений: " + PanelRendering.task.getCrossed().size() / 2 + "\n" +
                         "Отдельных точек: " + PanelRendering.task.getSingle().size();
+                PanelInfo.show(s + "\n\nНажмите Esc, чтобы вернуться");
                 PanelLog.success(s);
                 solve.text = "Сбросить";
             } else {
