@@ -28,9 +28,11 @@ public class Task {
      */
     public static final String TASK_TEXT = """
             ПОСТАНОВКА ЗАДАЧИ:
-            Заданы два множества точек в вещественном
-            пространстве. Требуется построить пересечение
-            и разность этих множеств""";
+            На плоскости задано множество точек.
+            Найти окружность наименьшей площади, внутри
+            которой находятся все точки множества.
+            Если таких окружностей несколько, найти любую.
+            В качестве ответа нарисовать найденную окружность.""";
 
     /**
      * коэффициент колёсика мыши
@@ -164,7 +166,7 @@ public class Task {
             addPoint(taskPos, Point.PointSet.FIRST_SET);
             // если правая, то во второе
         } else if (mouseButton.equals(MouseButton.SECONDARY)) {
-            addPoint(taskPos, Point.PointSet.SECOND_SET);
+            addPoint(taskPos, Point.PointSet.FIRST_SET);
         }
     }
     /**
@@ -192,7 +194,7 @@ public class Task {
             if (ThreadLocalRandom.current().nextBoolean())
                 addPoint(pos, Point.PointSet.FIRST_SET);
             else
-                addPoint(pos, Point.PointSet.SECOND_SET);
+                addPoint(pos, Point.PointSet.FIRST_SET);
         }
     }
     /**
